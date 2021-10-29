@@ -1,6 +1,6 @@
 # Exersice-Tracker
 
-** About **
+**About**
 A website that keeps track of exercise description, duration, & date for each user. Can add, edit, and delete entries
 
 Video demo: https://youtu.be/Y5LlYJ88yGg
