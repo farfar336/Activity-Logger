@@ -1,4 +1,4 @@
-# Exercise-Tracker
+# Activity-Logger
 
 **About**
 
