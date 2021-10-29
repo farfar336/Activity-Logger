@@ -19,11 +19,11 @@ connection.once('open', () => { //Executes when MongoDB connection is open
 })
 
 //Importing the files into these variables:
-const exercisesRouter = require('./routes/exercises');
+const activitiesRouter = require('./routes/activities');
 const usersRouter = require('./routes/users');
 
-//When /exercises or /users is put at the end, it will load that corresponding router
-app.use('/exercises', exercisesRouter);
+//When /activities or /users is put at the end, it will load that corresponding router
+app.use('/activities', activitiesRouter);
 app.use('/users', usersRouter);
 
 app.listen(port, () => { //Executes when server is started

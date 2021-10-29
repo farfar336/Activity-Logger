@@ -1,11 +1,11 @@
 const router = require('express').Router();
-let Exercise = require('../models/exercise.model');
+let Activity = require('../models/activity.model');
 
 //Handles get request
 router.route('/').get((req, res) => {
-    // Finds all exercise
-  Exercise.find()
-    .then(exercises => res.json(exercises)) //Returns all exercise in json format
+    // Finds all activity
+  Activity.find()
+    .then(activities => res.json(activities)) //Returns all activity in json format
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
@@ -18,46 +18,46 @@ router.route('/add').post((req, res) => {
   const duration = Number(req.body.duration);
   const date = Date.parse(req.body.date);
 
-    //Creates new exercise entry   
-  const newExercise = new Exercise({
+    //Creates new activity entry   
+  const newActivities = new Activity({
     username,
     description,
     duration,
     date,
   });
 
-//   Saves new exercise in the database
-  newExercise.save()
-  .then(() => res.json('Exercise added!')) //Returns message saying "exercise added"
+//   Saves new activity in the database
+  newActivities.save()
+  .then(() => res.json('Activity added!')) //Returns message saying "activity added"
   .catch(err => res.status(400).json('Error: ' + err)); //Returns error message
 });
 
 //Gets info for a specific ID
 router.route('/:id').get((req, res) => {
-  Exercise.findById(req.params.id) //Finds the specific ID
-    .then(exercise => res.json(exercise)) //Return entry as json 
+  Activity.findById(req.params.id) //Finds the specific ID
+    .then(activity => res.json(activity)) //Return entry as json 
     .catch(err => res.status(400).json('Error: ' + err)); //Else return error
 });
 
 //Deletes entry with a specified ID
 router.route('/:id').delete((req, res) => {
-  Exercise.findByIdAndDelete(req.params.id) //Deletes entry
-    .then(() => res.json('Exercise deleted.')) //Returns "Exercise deleted""
+  Activity.findByIdAndDelete(req.params.id) //Deletes entry
+    .then(() => res.json('Activity deleted.')) //Returns "Activity deleted""
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
 //Updates entry with the specified ID
 router.route('/update/:id').post((req, res) => {
-  Exercise.findById(req.params.id) //Find the entry
-    .then(exercise => { //Update the variables
-      exercise.username = req.body.username;
-      exercise.description = req.body.description;
-      exercise.duration = Number(req.body.duration);
-      exercise.date = Date.parse(req.body.date);
+  Activity.findById(req.params.id) //Find the entry
+    .then(activity => { //Update the variables
+      activity.username = req.body.username;
+      activity.description = req.body.description;
+      activity.duration = Number(req.body.duration);
+      activity.date = Date.parse(req.body.date);
 
       //Save the entry
-      exercise.save()
-        .then(() => res.json('Exercise updated!')) //Returns message "Exercise updated!"
+      activity.save()
+        .then(() => res.json('Activity updated!')) //Returns message "Activity updated!"
         .catch(err => res.status(400).json('Error: ' + err));
     })
     .catch(err => res.status(400).json('Error: ' + err));

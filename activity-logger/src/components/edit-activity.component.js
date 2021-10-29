@@ -3,7 +3,7 @@ import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
-export default class EditExercise extends Component {
+export default class EditActivity extends Component {
   constructor(props) {
     super(props);
 
@@ -23,7 +23,7 @@ export default class EditExercise extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/exercises/'+this.props.match.params.id)
+    axios.get('http://localhost:5000/activities/'+this.props.match.params.id)
       .then(response => {
         //   Change fields to new values
         this.setState({
@@ -78,16 +78,16 @@ export default class EditExercise extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const exercise = {
+    const activity = {
       username: this.state.username,
       description: this.state.description,
       duration: this.state.duration,
       date: this.state.date
     }
 
-    console.log(exercise);
+    console.log(activity);
 
-    axios.post('http://localhost:5000/exercises/update/' + this.props.match.params.id, exercise)
+    axios.post('http://localhost:5000/activities/update/' + this.props.match.params.id, activity)
       .then(res => console.log(res.data));
 
     window.location = '/';
@@ -96,7 +96,7 @@ export default class EditExercise extends Component {
   render() {
     return (
     <div>
-      <h3>Edit Exercise Log</h3>
+      <h3>Edit Activity Log</h3>
       <form onSubmit={this.onSubmit}>
         <div className="form-group"> 
           <label>Username: </label>
@@ -144,7 +144,7 @@ export default class EditExercise extends Component {
         </div>
 
         <div className="form-group">
-          <input type="submit" value="Edit Exercise Log" className="btn btn-primary" />
+          <input type="submit" value="Edit Activity Log" className="btn btn-primary" />
         </div>
       </form>
     </div>
