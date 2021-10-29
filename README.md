@@ -1,4 +1,4 @@
-# Exersice-Tracker
+# Exersise-Tracker
 
 **About**
 
