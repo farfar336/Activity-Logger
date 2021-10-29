@@ -3,6 +3,8 @@
 **About**
 A website that keeps track of exercise description, duration, & date for each user. Can add, edit, and delete entries
 
+Technologies used: JavaScript, HTML, React, Node.js, VS code, MongoDB, Insomnia
+
 Video demo: https://youtu.be/Y5LlYJ88yGg
 
 Screenshots:
